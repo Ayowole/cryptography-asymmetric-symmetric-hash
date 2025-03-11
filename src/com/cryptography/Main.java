@@ -1,6 +1,5 @@
 package com.cryptography;
 
-import com.cryptography.asymmetric.ECC;
 import com.cryptography.asymmetric.RSA;
 import com.cryptography.hashing.SHA256;
 import com.cryptography.symmetric.AES;
@@ -44,19 +43,6 @@ public class Main {
 
     //saves file in the public folder
     Files.write(Path.of("public-folder/rsa-decrypted-file.txt"), decryptedBytesRSA);
-
-    //ECC
-    ECC ecc = new ECC();
-
-    byte[] encryptedBytesECC = ecc.encrypt("Encrypting with ECC is fun".getBytes());
-
-    //saves file in the secure folder
-    Files.write(Path.of("secure-folder/ecc-encrypted-file.enc"), encryptedBytesECC);
-
-    byte[] decryptedBytesECC = ecc.decrypt(Base64.getDecoder().decode(encryptedBytesECC));
-
-    //saves file in the public folder
-    Files.write(Path.of("public-folder/ecc-decrypted-file.txt"), decryptedBytesECC);
 
     //plus hashing with SHA-256
     //SHA-256
